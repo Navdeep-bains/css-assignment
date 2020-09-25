@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- cdn link of bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- adding external css file -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <div class="make">
+          <h3 class="make-content">
+            Make this content horizontally and vertically center to its parent
+          </h3>
+        </div>
+      </div>
+    </section>
+    <section class="mt-5">
+      <div class = "container">
+        <div class="timeline">
+          <div class="containers right">
+            <div class="content">
+        <p>item 1</p>
+            </div>
+          </div>
+          <div class="containers right">
+            <div class="content">
+        <p>item 2</p>
+            </div>
+          </div>
+          <div class="containers right">
+            <div class="content">
+         <p>item 3</p>
+            </div>
+          </div>
+          <div class="containers right">
+            <div class="content">
+        <p>item 4</p>
+            </div>
+          </div>
+          <div class="containers right">
+            <div class="content">
+              <p>item 5</p>
+            </div>
+          </div>
+          <div class="containers right">
+            <div class="content">
+              <p>item 6</p>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </section>
+    <section class="mt-5">
+      <div class="text-center">
+        <h2>Live Time Clock</h2>
+        <p id="demo"></p>
+      </div>
+      <div class="container text-center">
+        <p id="result"></p>
+        <button type="button" class="btn btn-primary" onclick="getResult()">click me</button>
+      </div>
+    </section>
+    <script>
+      // here we have window object are using one property of this object i.e
+      // onload when page gets load function will automatic run
+      window.onload = showClock = () => {
+        var date = new Date(); //new date is object and it has properties of date,hour,minute,second,day,month and we are
+        // some properties of this object like hour minute seconds
+        var h = date.getHours();
+        var m = date.getMinutes();
+        var s = date.getSeconds();
+        // if (h > 12) {
+        //   h = h - 12;
+        // }
+        // h = h < 10 ? "0" + h : h; //if hour comes lower than 10 then we are concat 0 with h
+        // m = m < 10 ? "0" + m : m; //if minutes comes lower than 10 then we are concat 0 with m
+        s = s < 10 ? "0" + s : s; //if seconds comes lower than 10 then we are concat 0 with s
+        var time = h + ":" + m + ":" + s;
+        document.getElementById("demo").innerHTML = time;
+        setTimeout(showClock, 1000); //setTimeout is js method it runs after every one second
+      };
+
+
+      var basket = 0;
+      function getResult(){
+        var random = Math.floor(Math.random() * 6 + 1);
+        console.log("random",random);
+        if(random !=  1){
+          this.basket = this.basket + random;
+          document.getElementById("result").innerHTML = basket;
+        }
+        else{
+          this.basket = 0;
+          document.getElementById("result").innerHTML = basket;
+        }
+      };
+    </script>
+  </body>
+</html>
